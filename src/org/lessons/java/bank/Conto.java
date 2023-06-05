@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Conto {
     private final int numeroConto;
-    private final String proprietario;
+    private String proprietario;
     private double saldo;
 
     public Conto(String proprietario) {
@@ -22,6 +22,10 @@ public class Conto {
     }
     public double getSaldo() {
         return this.saldo;
+    }
+
+    public void setProprietario(String proprietario) {
+        this.proprietario = proprietario;
     }
 
     public String getSaldoFormattato() {
