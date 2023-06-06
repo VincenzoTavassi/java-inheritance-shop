@@ -42,7 +42,7 @@ public class Carrello {
                     System.out.println("Inserisci la profondità");
                     int profondita = scanner.nextInt();
                     System.out.println("E' uno smart TV? S/N");
-                    boolean smart = scanner.nextLine().equals("s");
+                    boolean smart = scanner.next().equals("s");
                     Televisore tv = new Televisore(nomeProdotto, prezzoProdotto, ivaProdotto, descrizioneProdotto, larghezza, altezza, profondita, smart);
                     System.out.println(tv.toString());
                     carrelloProdotti[i] = tv;
@@ -58,6 +58,8 @@ public class Carrello {
                     carrelloProdotti[i] = cuffie;
                     i++;
                     break;
+                default:
+                    System.out.println("Scelta non valida");
             }
         }
 
