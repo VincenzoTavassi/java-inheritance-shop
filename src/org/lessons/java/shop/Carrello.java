@@ -15,6 +15,11 @@ public class Carrello {
             System.out.println("Che prodotto intendi inserire?");
             System.out.println("1 - Smartphone, 2 - Televisore, 3 - Cuffie");
             int sceltaUtente = scanner.nextInt();
+            while (sceltaUtente != 1 && sceltaUtente != 2 && sceltaUtente != 3) {
+                System.out.println("Scelta non valida. Che prodotto intendi inserire?");
+                System.out.println("1 - Smartphone, 2 - Televisore, 3 - Cuffie");
+                sceltaUtente = scanner.nextInt();
+            }
             System.out.println("Inserisci il nome del prodotto");
             String nomeProdotto = scanner.next();
             System.out.println("Inserisci il prezzo");
@@ -58,8 +63,6 @@ public class Carrello {
                     carrelloProdotti[i] = cuffie;
                     i++;
                     break;
-                default:
-                    System.out.println("Scelta non valida");
             }
         }
 
