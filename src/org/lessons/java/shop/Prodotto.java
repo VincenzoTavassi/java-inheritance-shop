@@ -1,16 +1,17 @@
 package org.lessons.java.shop;
 
+import java.math.BigDecimal;
 import java.util.Random;
 
 public class Prodotto {
     private int codice;
     private String nome;
-    private double prezzo;
-    private int iva;
+    private BigDecimal prezzo;
+    private BigDecimal iva;
     private String descrizione;
 
     // Constructor
-    public Prodotto(String nome, double prezzo, int iva, String descrizione) {
+    public Prodotto(String nome, BigDecimal prezzo, BigDecimal iva, String descrizione) {
         Random rand = new Random();
         this.codice = rand.nextInt(1000, 10000);
         this.nome = nome;
@@ -25,11 +26,11 @@ public class Prodotto {
         this.nome = nome;
     }
 
-    public void setPrezzo(int prezzo) {
+    public void setPrezzo(BigDecimal prezzo) {
         this.prezzo = prezzo;
     }
 
-    public void setIva(int iva) {
+    public void setIva(BigDecimal iva) {
         this.iva = iva;
     }
 
@@ -51,19 +52,30 @@ public class Prodotto {
         return this.descrizione;
     }
 
-    public double getPrezzo() {
+    public BigDecimal getPrezzo() {
         return this.prezzo;
     }
 
-    public int getIva() {
+    public BigDecimal getIva() {
         return this.iva;
     }
 
-    public double getPrezzoIva() {
-        return this.prezzo * this.iva / 100;
+    public BigDecimal getPrezzoIva() {
+        return this.prezzo.multiply(this.iva).divide(BigDecimal.valueOf(100));
     }
 
     public String getNomeCompleto() {
         return this.codice + "-" + this.nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Prodotto{" +
+                "codice=" + codice +
+                ", nome='" + nome + '\'' +
+                ", prezzo=" + prezzo +
+                ", iva=" + iva +
+                ", descrizione='" + descrizione + '\'' +
+                '}';
     }
 }
